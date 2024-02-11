@@ -1,0 +1,202 @@
+/* start Global rules  */
+*{
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:root{
+    --Red: hsl(1, 90%, 64%);
+    --Blue: hsl(219, 85%, 26%);
+    --White: hsl(0, 0%, 100%);
+    --Very-light-grayish-blue: hsl(210, 60%, 98%);
+    --Light-grayish-blue-1: hsl(211, 68%, 94%);
+    --Light-grayish-blue-2: hsl(205, 33%, 90%);
+    --Grayish-blue: hsl(219, 14%, 63%);
+    --Dark-grayish-blue: hsl(219, 12%, 42%);
+    --Very-dark-blue: hsl(224, 21%, 14%);
+}
+
+body{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--Very-light-grayish-blue);
+}
+
+.container{
+    padding: 15px;
+    margin: 40px auto;
+    background: var(--White);
+}
+
+
+/* small devics media */
+@media (min-width: 768px){
+    .container{
+        width: 750px;
+    }
+    html{
+        font-size: 14px;
+    }
+}
+
+/* mediam devics media */
+@media (min-width: 992px){
+    .container{
+        width: 970px;
+    }
+}
+
+
+/* lage devics media */
+@media (min-width: 1200px){
+    .container{
+        width: 1170px;
+    }
+}
+
+/* end Global rules  */
+
+
+/* start styling the hole page  */
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    border-radius: 6px;
+    box-shadow: 0px 0px 4px 0px var(--Very-dark-blue );
+    .title{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h2{
+            color: var(--Very-dark-blue);
+            font-weight: 800;
+            .pagination{
+                padding: 5px 10px;
+                border-radius: 5px;
+                background: var(--Blue);
+                font-size: 1rem;
+                margin-left: 5px;
+                color: var(--White);
+            }
+        }
+        p{
+            color: var(--Grayish-blue);
+            font-size: 1.01rem;
+        }
+    }
+    .notifications-holder{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        .sender{
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 6px;
+            &.not-readed-yet{
+                background: var(--Light-grayish-blue-1);
+            }   
+            .info-holder{
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                position: relative;
+                
+                .sender-img{
+                    width: 50px;
+                    img{
+                        width: 100%;
+                    }
+                }
+                .sender-details{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    .sender-info{
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        position: relative;
+                        &.not-yet::after{
+                            content: "";
+                            width: 10px;
+                            height: 10px;
+                            border-radius: 50%;
+                            background: var(--Red);
+                            top: 50%;
+                            right: -10px;
+                            transform: translate(-50%,-50%);
+                        }
+                        
+                        .sender-name{
+                            font-weight: 800;
+                            cursor: pointer;
+                            transition: .2s ease-in;
+                            &:hover{
+                                color: var(--Blue);
+                            }
+                        }
+                        .sender-action{
+                            color: var(--Grayish-blue);
+                            font-size: 1.01rem;
+                        }
+                        .sender-text{
+                            color: var(--Dark-grayish-blue);
+                            font-weight: 500;
+                            font-size: 1.05rem;
+                            transition: .2s ease;
+                            cursor: pointer;
+                            font-weight: 800;
+                            &:hover{
+                                color: var(--Blue);
+                            }
+                        }
+                    }
+                    .date{
+                        color: var(--Grayish-blue);
+                            font-size: 1.01rem;
+                    }
+                }
+            }
+            .more-details{
+                margin-top: 10px;
+                padding: 10px;
+                line-height: 1.4;
+                color: var(--Grayish-blue);
+                border: 1px solid var(--Grayish-blue);
+                border-radius: 6px;
+                background: white;
+                font-size: 1.2rem;
+                transition: all .4s ease;
+                &.hide-det{
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+
+/* end styling the hole page  */
+
+
+/* font of small devics media */
+@media (max-width: 768px){
+    html{
+        font-size: 8px !important;
+    }
+    p{
+        font-size: .85rem !important;
+    }
+    h3{
+        font-size: .9rem !important;
+    }
+
+    .not-yet::after{
+        width: 5px !important;
+        height: 5px !important;
+    }
+}
